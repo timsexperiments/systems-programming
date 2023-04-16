@@ -1,0 +1,11 @@
+{
+  "name": "systems-programming",
+  "version": "1.0.0",
+  "description": "Learning more about systems level programming languages such as Rust, C, Go, Swift, and C++.",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier -w **/*.{js,json,ts}"
+  },
+  "author": "Tim",
+  "license": "MIT"
+}
