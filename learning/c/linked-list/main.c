@@ -86,6 +86,7 @@ int main()
     // Test freeing list
     list_free(*list);
     free(list);
+    return 0;
 }
 
 struct list *list_init()

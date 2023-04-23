@@ -54,3 +54,4 @@ dkms.conf
 vgcore.*
 
 node_modules/
+.pnpm-store/

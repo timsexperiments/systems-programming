@@ -8,7 +8,7 @@
   },
   "author": "Tim",
   "license": "MIT",
-  "dependencies": {
-    "prettier": "^2.8.7"
+  "devDependencies": {
+    "prettier": "^2.8.8"
   }
 }
