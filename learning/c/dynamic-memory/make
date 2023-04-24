@@ -1,8 +1,0 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -std=c99
-
-main: main.c
-    $(CC) $(CFLAGS) -c main.c
-
-clean:
-    rm -f main *.o

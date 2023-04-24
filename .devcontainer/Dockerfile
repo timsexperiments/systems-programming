@@ -7,16 +7,24 @@ RUN apt-get update --fix-missing
 # Install valgrind for use with c amd c++
 RUN apt-get install -y valgrind
 
-# Install Rust
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-ENV PATH=/root/.cargo/bin:$PATH
-
 # Install Go
 RUN apt-get install -y wget && \
     wget https://golang.org/dl/go1.20.3.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go1.20.3.linux-amd64.tar.gz && \
     rm go1.20.3.linux-amd64.tar.gz
 ENV PATH $PATH:/usr/local/go/bin
+ENV PATH $PATH:/root/go/bin
+
+# Install bazel (bazelisk) and other useful tools
+RUN wget https://github.com/bazelbuild/bazelisk/releases/download/v1.8.1/bazelisk-linux-amd64 && \
+    chmod +x bazelisk-linux-amd64 && \
+    mv bazelisk-linux-amd64 /usr/local/bin/bazel
+# Buldifier a tool for formatting bazel
+RUN go install github.com/bazelbuild/buildtools/buildifier@latest 
+
+# Install Rust
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ENV PATH=/root/.cargo/bin:$PATH
 
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
@@ -35,3 +43,4 @@ RUN echo 'export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[0
 
 # Install PNPM
 RUN npm i -g pnpm
+
