@@ -21,6 +21,7 @@ int main()
     }
     populate_array(arr, rows, cols);
     print_array(arr, rows, cols);
+    free_arr(arr, rows, cols);
     return 0;
 }
 
